@@ -5,6 +5,7 @@ RUN DEBIAN_FRONTEND=noninteractive && \
     apt-get install -qq \
     cron \
     gnupg \
+    libpng-dev \
     libxml2-dev \
     libzip-dev \
     lsb-release \
@@ -23,4 +24,4 @@ RUN DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get install -qq ngin
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install PHP Extensions
-RUN docker-php-ext-install opcache pdo_mysql zip && pecl install redis && docker-php-ext-enable redis
+RUN docker-php-ext-install gd exif opcache pdo_mysql zip && pecl install redis && docker-php-ext-enable redis
